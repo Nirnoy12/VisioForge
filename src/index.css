@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode configuration */
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-progress {
+  animation: progress 3s ease-in-out infinite;
+}
+
+/* Custom slider styles for light mode */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Dark mode slider styles */
+.dark .slider::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #60a5fa, #818cf8);
+  box-shadow: 0 4px 8px rgba(96, 165, 250, 0.3);
+}
+
+.dark .slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 6px 12px rgba(96, 165, 250, 0.4);
+}
+
+.dark .slider::-moz-range-thumb {
+  background: linear-gradient(135deg, #60a5fa, #818cf8);
+  box-shadow: 0 4px 8px rgba(96, 165, 250, 0.3);
+}
+
+.dark .slider::-moz-range-thumb:hover {
+  box-shadow: 0 6px 12px rgba(96, 165, 250, 0.4);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Enhanced focus states */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dark button:focus-visible,
+.dark input:focus-visible,
+.dark textarea:focus-visible {
+  outline-color: #60a5fa;
+}
+
+/* Improved scrollbar styling for light mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Dark mode scrollbar styling */
+.dark ::-webkit-scrollbar-track {
+  background: #334155;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #64748b;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+}
+
+/* Custom gradient animations */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Enhanced button hover effects */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+/* Improved text selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: inherit;
+}
+
+.dark ::selection {
+  background-color: rgba(96, 165, 250, 0.3);
+}
+
+/* Loading animation improvements */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Dark mode specific improvements */
+.dark {
+  color-scheme: dark;
+}
+
+/* Ensure proper contrast in dark mode */
+.dark .text-slate-900 {
+  color: rgb(241 245 249);
+}
+
+.dark .text-slate-800 {
+  color: rgb(226 232 240);
+}
+
+.dark .text-slate-700 {
+  color: rgb(203 213 225);
+}
+
+.dark .text-slate-600 {
+  color: rgb(148 163 184);
+}
+
+/* Enhanced glass morphism effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
